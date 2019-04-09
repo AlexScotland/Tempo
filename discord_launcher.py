@@ -7,7 +7,7 @@ key_C = ['C','D','E','F','G','A','B']
 noteList = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B','C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
 ### Minors 2 1 2 2 1 2 2
 ### Majors 2 2 1 2 2 2 1
-description = '''lel oidk what im doiog :D'''
+description = '''Welcome to Tempo!  The Discord's First Music Theory Bot!'''
 bot = commands.Bot(command_prefix='#', description=description)
 @bot.event
 async def on_ready():
@@ -76,6 +76,6 @@ applies to notes, then gives back notes that sound aight"""
 
         solution = 'Next note in this key is:  '+str(rList)
     else:
-        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #notes note key length"
+        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #key <Note> <length>"
     await ctx.send(solution)
 bot.run('botkeygoeshere')
