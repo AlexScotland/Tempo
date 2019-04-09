@@ -2,12 +2,11 @@
 import discord
 from discord.ext import commands
 import random
-##THIS IS WHERE WE MAKE LISTS OF KEYS
-key_C = ['C','D','E','F','G','A','B']
+## Flippity Floppity, hers your note-opity
 noteList = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B','C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
 ### Minors 2 1 2 2 1 2 2
 ### Majors 2 2 1 2 2 2 1
-description = '''Welcome to Tempo!  The Discord's First Music Theory Bot!'''
+description = '''lel oidk what im doiog :D'''
 bot = commands.Bot(command_prefix='#', description=description)
 @bot.event
 async def on_ready():
@@ -24,8 +23,11 @@ applies to notes, then gives back notes that sound aight"""
         length = 1
     elif length > 7:
         length = 7
-    if 'm' in note:
+    if 'm' in note and len(note) > 2:
         tempnote = note[:2]
+        print(len(note))
+    elif 'm' in note and len(note) == 2:
+        tempnote = note[0]
         print(len(note))
     else:
         tempnote = note
@@ -76,6 +78,6 @@ applies to notes, then gives back notes that sound aight"""
 
         solution = 'Next note in this key is:  '+str(rList)
     else:
-        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #key <Note> <length>"
+        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #notes note key length"
     await ctx.send(solution)
-bot.run('botkeygoeshere')
+bot.run('Hello put a key in me :D')
