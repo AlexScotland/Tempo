@@ -6,7 +6,7 @@ import random
 noteList = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B','C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
 ### Minors 2 1 2 2 1 2 2
 ### Majors 2 2 1 2 2 2 1
-description = '''lel oidk what im doiog :D'''
+description = '''I will make your music less shit'''
 bot = commands.Bot(command_prefix='#', description=description)
 @bot.event
 async def on_ready():
