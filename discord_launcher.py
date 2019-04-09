@@ -78,6 +78,6 @@ applies to notes, then gives back notes that sound aight"""
 
         solution = 'Next note in this key is:  '+str(rList)
     else:
-        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #notes note key length"
+        solution = "Couldn't find your Note: "+note+", please remember, the syntax is #key <starting note> length"
     await ctx.send(solution)
 bot.run('Hello put a key in me :D')
