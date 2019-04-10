@@ -9,7 +9,7 @@ global minor
 minor = [2,1,2,2,1,2,2]
 global major
 major = [2,2,1,2,2,2,1]
-
+# hello
 def keys(note, length):
     fuck = []
     if "m" in note:
