@@ -9,15 +9,15 @@ global minor
 minor = [2,1,2,2,1,2,2]
 global major
 major = [2,2,1,2,2,2,1]
-
+# hello
 def keys(note, length):
     fuck = []
     if "m" in note:
-        note = note[:note.index("m")] 
+        note = note[:note.index("m")]
         count = noteList.index(note)
         if length == 1:
             fuck.append(noteList[count+2])
-        else:    
+        else:
             for x in minor[:length]:
                 fuck.append(noteList[count])
                 count += x
@@ -25,7 +25,7 @@ def keys(note, length):
         count = noteList.index(note)
         if length == 1:
             fuck.append(noteList[count+2])
-        else:    
+        else:
             for x in major[:length]:
                 fuck.append(noteList[count])
                 count += x
@@ -48,7 +48,7 @@ applies to notes, then gives back notes that sound aight"""
         length = 1
     elif length > 7:
         length = 7
-        
+
     answer=keys(note, length)
     solution = 'Next note in this key is:  '+str(answer)
     await ctx.send(solution)
