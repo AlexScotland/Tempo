@@ -11,9 +11,12 @@ Requirements:
  - Python 3.7.3
  
  Usage
-  - #Key <Note> <length>
+  - #Key <Key> <length>
     - Note - The note you are starting on:  Cm / C
     - Length - How many notes you want shown (default 1, max 7)
+  - #prog <note> <length>
+    - Key - The Key you want
+    - Length - How long is your progression?
    
 Too add Tempo to your server, use the following link:
 https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=0&scope=bot
