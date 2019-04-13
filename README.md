@@ -8,6 +8,8 @@ Tempo will show you (and any users) different Musical Theory for whichever note 
 
 Requirements:
  - Discord.py
+ - Discord.py[voice]
+ - libopus
  - Python 3.7.3
  
  Usage
