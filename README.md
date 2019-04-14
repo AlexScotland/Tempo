@@ -10,6 +10,7 @@ Requirements:
  - Discord.py
  - Discord.py[voice]
  - opuslib
+ - ffmpeg
  - Python 3.7.3
  
  Usage
