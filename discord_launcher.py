@@ -1,35 +1,34 @@
-##HEELLOO U NERDS
 import discord
 from discord.ext import commands
-import random
-## Flippity Floppity, hers your note-opity
+from discord.voice_client import VoiceClient
+import os, random, asyncio, time
 global noteList
-noteList = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B','C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B']
+noteList = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
 global minor
 minor = [2,1,2,2,1,2,2]
 global major
 major = [2,2,1,2,2,2,1]
-# hello
+
 def keys(note, length):
-    fuck = []
+    key_list = []
     if "m" in note:
         note = note[:note.index("m")]
         count = noteList.index(note)
         if length == 1:
-            fuck.append(noteList[count+2])
+            key_list.append(noteList[count+2])
         else:
             for x in minor[:length]:
-                fuck.append(noteList[count])
+                key_list.append(noteList[count])
                 count += x
     else:
         count = noteList.index(note)
         if length == 1:
-            fuck.append(noteList[count+2])
+            key_list.append(noteList[count+2])
         else:
             for x in major[:length]:
-                fuck.append(noteList[count])
+                key_list.append(noteList[count])
                 count += x
-    return fuck
+    return key_list
 
 def progression(keylist,amt):
     answer_list=[]
@@ -49,7 +48,8 @@ def progression(keylist,amt):
 
 
 description = '''lel idk what im doing :D'''
-bot = commands.Bot(command_prefix='#', description=description)
+bot = commands.Bot(command_prefix='#')
+soundList = os.listdir('sounds/')
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -73,10 +73,16 @@ applies to notes, then gives back notes that sound aight"""
 async def prog(ctx, note:str,amount=3):
     """Bot takes the key, and amount then generates a random chord progression."""
     k=keys(note,7)
-    answer =progression(k,amount)
+    answer = progression(k,amount)
     solution = 'Generated Key Progression '+str(answer)
     await ctx.send(solution)
+    if ctx.author.voice is not None:
+        vc = await ctx.author.voice.channel.connect()
+        for i in range(len(answer)):
+            source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio('sounds/'+str(answer[i])+'.mp3'))
+            ctx.voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
+            time.sleep(1)
+        await vc.disconnect()
 
 
-
-bot.run('Add Token here')
+bot.run('')

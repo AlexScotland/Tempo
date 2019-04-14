@@ -19,6 +19,8 @@ Requirements:
   - #prog <note> <length>
     - Key - The Key you want
     - Length - How long is your progression?
+	       #prog also has Voice chat support!
+		- if user is in voice chat, Tempo will join and play your notes to you!
    
 Too add Tempo to your server, use the following link:
-https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=0&scope=bot
+https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=36760832&scope=bot
