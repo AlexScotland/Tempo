@@ -69,7 +69,7 @@ def progression(keylist,amt):
             counter += 1
     return answer_list
 
-def chordify(octavelist,noteType:str,length):
+def chordify(octavelist,noteType,delta,length):
     '''
     chordify(list of entire octave,how many notes in chord)
     this function generates logical chords using the notes in a given octave
@@ -81,22 +81,40 @@ def chordify(octavelist,noteType:str,length):
     count=0
     major_steps=[4,3,4,3,4,3]
     minor_steps=[3,4,3,4,3,4]
-    if noteType == 'minor':
+    augmented_steps=[4,4,4,4,4]
+    diminished_steps=[3,3,3,3,3]
+    if 'minor' in noteType:
         for x in minor_steps[:length]:
             if count >= len(octavelist):
                 chordList.append(octavelist[count-12])
             else:
                 chordList.append(octavelist[count])
                 count += x
-    elif noteType == 'major':
+    elif 'major' in noteType:
         for x in major_steps[:length]:
             if count >= len(octavelist):
                 chordList.append(octavelist[count-12])
             else:
                 chordList.append(octavelist[count])
                 count += x
+    elif 'dim' in noteType:
+        for x in diminished_steps[:length]:
+            if count >= len(octavelist):
+                chordList.append(octavelist[count-12])
+            else:
+                chordList.append(octavelist[count])
+                count += x
+    elif 'aug' in noteType:
+        for x in augmented_steps[:length]:
+            if count >= len(octavelist):
+                chordList.append(octavelist[count-12])
+            else:
+                chordList.append(octavelist[count])
+                count += x
     else:
-        chordList='Hmm, seems like '+noteType+' is not a chord type!  Should check your spelling :eyes:' 
+        chordList='Hmm, seems like '+noteType+' is not a chord type!  Should check your spelling :eyes:'
+    if str(delta) == '7' and type(chordList) == list:
+            chordList.append(octavelist[octavelist.index(chordList[-1])+3])
     return chordList
 
 description = '''Tempo is Discord's First music-theory bot!'''
@@ -137,14 +155,14 @@ async def prog(ctx, note:str,amount=3):
         await vc.disconnect()
         
 @bot.command()
-async def chord(ctx, root:str,noteType='major',length=3):
+async def chord(ctx, root:str,noteType='major',delta=0,length=3,):
     """Bot takes args and generates the logical Triad Note using the Root (unless larger) """
     if length < 2:
         length = 2
     elif length > 5:
         length = 5
     getOctave=octave(root)
-    chord = chordify(getOctave,noteType,length)
+    chord = chordify(getOctave,noteType,delta,length)
     await ctx.send(chord)
 
 
