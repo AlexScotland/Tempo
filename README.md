@@ -22,10 +22,11 @@ Requirements:
     - Length - How long is your progression?
 	       #prog also has Voice chat support!
 		- if user is in voice chat, Tempo will join and play your notes to you!
-  - #chord <root-note> <chord Type> <notes>
+  - #chord <root-note> <chord Type> <delta> <length>
     - root-note - the Root note in the chord
     - chord Type - Major? Minor? Augmented? Diminish? defaults to major.
-    - notes - how many notes do you want to hit in the chord?
+    - Delta - Is your chord a 7th? 13th? only 7th is working as of 4/17/2019
+    - length - Replaces with delta, haven't made necessary adjustments.
    
 Too add Tempo to your server, use the following link:
 https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=36760832&scope=bot
