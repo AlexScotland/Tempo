@@ -9,11 +9,9 @@ Tempo will show you (and any users) different Musical Theory for whichever note 
 Requirements:
  - Discord.py
  - Discord.py[voice]
- - opuslib
 <<<<<<< HEAD
 =======
  - ffmpeg
->>>>>>> 8e457a51ba5d84072e6c244f95ea80df4deb7398
  - Python 3.7.3
  
  Usage
@@ -23,14 +21,7 @@ Requirements:
   - #prog <note> <length>
     - Key - The Key you want
     - Length - How long is your progression?
-<<<<<<< HEAD
 	#prog also has Voice chat support!
-		- if user is in voice chat, Tempo will join and play your notes to you!
-   
-Too add Tempo to your server, use the following link:
-https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=36760832&scope=bot
-=======
-	       #prog also has Voice chat support!
 		- if user is in voice chat, Tempo will join and play your notes to you!
   - #chord <root-note> <chord Type> <delta> <length>
     - root-note - the Root note in the chord
@@ -40,4 +31,3 @@ https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permiss
    
 Too add Tempo to your server, use the following link:
 https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=36760832&scope=bot
->>>>>>> 8e457a51ba5d84072e6c244f95ea80df4deb7398
