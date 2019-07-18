@@ -9,8 +9,6 @@ Tempo will show you (and any users) different Musical Theory for whichever note 
 Requirements:
  - Discord.py
  - Discord.py[voice]
-<<<<<<< HEAD
-=======
  - ffmpeg
  - Python 3.7.3
  
