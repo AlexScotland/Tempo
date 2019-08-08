@@ -5,6 +5,7 @@ class Tempo:
         self.minor = [2,1,2,2,1,2,2]
         self.major = [2,2,1,2,2,2,1]
         self.piano_roll = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
+        self.piano_auctave=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
 
     def getKeyScale(self, note_and_key):
         '''
@@ -104,3 +105,31 @@ class Tempo:
                     break
         return chord
 
+    def findKeyFromNotes(self,note_list):
+        temp_dict_maj ={}
+        temp_dict_min ={}
+        for i in self.piano_auctave:
+            temp_dict_maj[i] = 0
+            temp_dict_min[i] = 0
+        for i in self.piano_auctave:
+            for j in self.getKeyScale(i+'maj'):
+                if j in note_list:
+                    temp_dict_maj[i]+=1
+            for j in self.getKeyScale(i+'min'):
+                if j in note_list:
+                    temp_dict_min[i]+=1
+        start_val= 0
+        temp =''
+        temp_m = 'maj'
+        for i in temp_dict_maj:
+            if temp_dict_maj[i] > start_val:
+                start_val = temp_dict_maj[i]
+                temp=i
+                temp_m = 'maj'
+        for i in temp_dict_min:
+            if temp_dict_min[i] > start_val:
+                start_val = temp_dict_maj[i]
+                temp=i
+                temp_m = 'min'
+        temp=temp+' '+temp_m
+        return temp
