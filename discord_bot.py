@@ -41,7 +41,7 @@ async def prog(ctx, note:str,amount=3):
             ctx.voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
             time.sleep(1)
         await vc.disconnect()
-        
+
 @bot.command()
 async def chord(ctx, root:str,length=3,):
     """Bot takes args and generates the logical Triad Note using the Root (unless larger) """
@@ -52,5 +52,13 @@ async def chord(ctx, root:str,length=3,):
     chord = Tempo.generateChordProgression(root)
     await ctx.send(chord)
 
-
-
+@bot.command()
+async def findKey(ctx, note1:str,note2:str,note3:str,note4=None,note5=None,note6=None):
+    """Bot takes args and generates the logical Triad Note using the Root (unless larger) """
+    list_of_notes = []
+    list_of_notes.append(note1,note2,note3,note4,note5,note6)
+    for i in list_of_notes:
+        if i == None:
+            list_of_notes.remove(i)
+    chord = Tempo.findKeyFromNotes(list_of_notes)
+    await ctx.send('The key that has all of these notes is:  '+chord)
