@@ -47,7 +47,7 @@ class Tempo:
         progression_list = []
         if length > 7:
             length = 7
-        if 'min' not in key and 'maj' not in key:
+        if 'min' not in key and 'maj' not in key and 'lyd' not in key:
             key += 'maj'
         key_list = self.getKeyScale(key)
         counter = 0
