@@ -2,6 +2,7 @@ import random
 
 class Tempo:
     def __init__(self):
+        self.lydian = [2,2,2,1,2,2,1]
         self.minor = [2,1,2,2,1,2,2]
         self.major = [2,2,1,2,2,2,1]
         self.piano_roll = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
@@ -22,9 +23,15 @@ class Tempo:
         elif "maj" in note_and_key:
             note = (note_and_key.split("maj")[0].upper()).replace(' ','')
             step = self.piano_roll.index(note)
-            for i in range(len(self.minor)):
+            for i in range(len(self.major)):
                 key_list.append(self.piano_roll[step])
                 step += self.major[i]
+        elif "lyd" in note_and_key:
+            note = (note_and_key.split("lyd")[0].upper()).replace(' ','')
+            step = self.piano_roll.index(note)
+            for i in range(len(self.lydian)):
+                key_list.append(self.piano_roll[step])
+                step += self.lydian[i]
         return key_list
 
     def octave(self,root):
