@@ -17,7 +17,7 @@ async def on_ready():
     print('------')
 
 @bot.command()
-async def key(ctx, note:str):
+async def key(ctx, note:str, length=7):
     """Bot takes argument,
 applies to notes, then gives back notes that sound aight"""
     if length < 1:
