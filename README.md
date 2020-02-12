@@ -27,5 +27,5 @@ Requirements:
     - Delta - Is your chord a 7th? 13th? only 7th is working as of 4/17/2019
     - length - Replaces with delta, haven't made necessary adjustments.
    
-Too add Tempo to your server, use the following link:
+To add Tempo to your server, use the following link:
 https://discordapp.com/api/oauth2/authorize?client_id=564959346165809159&permissions=36760832&scope=bot
