@@ -1,4 +1,4 @@
-# 🎵 Welcome to Tempo 🎵
+<h1 align="center"> 🎵 Welcome to Tempo 🎵</h1>
 
 ## Tempo is a Discord bot made entirely on Python 3.7.3
 
